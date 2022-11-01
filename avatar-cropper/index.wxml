@@ -1,0 +1,18 @@
+<view class="container" wx:if="{{show}}">
+  <view class="top" style="height:{{(systemInfo.windowHeight-300)/2}}px;"></view>
+  <view class="left" style="width: {{(systemInfo.windowWidth-300)/2}}px;top: {{(systemInfo.windowHeight-300)/2}}px;height: 300px;"></view>
+  <view class="right" style="width: {{(systemInfo.windowWidth-300)/2}}px;top: {{(systemInfo.windowHeight-300)/2}}px;height: 300px;"></view>
+  <view class="bottom" style="top:{{(systemInfo.windowHeight-300)/2+300}}px;"></view>
+  <canvas canvas-id="myCanvas" class="canvas">
+    
+  </canvas>
+  <movable-area scale-area class="movable-area" style="top: {{(systemInfo.windowHeight-300)/2}}px;left: {{(systemInfo.windowWidth-300)/2}}px;">
+    <movable-view scale-min="1" animation="{{false}}" bindscale="onScale" bindchange="onMove" x="{{x}}" y="{{y}}" scale direction="all" style="width: {{image_w}}px;height: {{image_h}}px;">
+      <image class="image" bindload="onImageLoad" src="{{imageUrl}}"></image>
+    </movable-view>
+  </movable-area>
+  <view class="footer">
+    <view class="button" bindtap="cancel">取消</view>
+    <view class="button" style="background-color: #4CE0E0;color: #fff;" bindtap="getImage">确定</view>
+  </view>
+</view>
